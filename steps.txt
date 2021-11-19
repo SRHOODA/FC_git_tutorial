@@ -213,3 +213,27 @@ to amend the last commit with your changes-
 
 ##12 unstaging and unmodifing-
 removed myPandaName package
+
+if i make change in a file and move it to stage area using command-
+>git add name_of_file
+
+now to unstage this file, run-
+>git restore --staged file_name
+>git status
+
+now if i mistakenly deleted the file content and save it and close that file
+now to get the last commit content of that file
+>git checkout -- file_name  
+>git status
+(**use this commands carefully becoz u will lost ur current changes
+and **if you hv staged the file changes than this will not get the last commit content)
+
+**same thing for all the files that u hv changed their content
+**use this commands carefully
+>git checkout -f
+
+to restore a working directory from changes(means to undo the changes)
+**use this commands carefully
+>git restore file_name
+
+how to visit 2nd last or any commit changes???

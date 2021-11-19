@@ -1,0 +1,215 @@
+1## linus torvald(father of linux and git(distributed version control system))
+git main features
+a. saves snapshots(commits) not differences
+b. almost every opertion is local
+c. git has integrity(creates .git folder(it keeps all the history/version of project and its files) if anyone changes file in it, it tells us(by internally keeping track of sha checksums))
+d. git generally only adds data
+
+#github, bitbucket, gitlab etc are hosting services for remote git repositories
+
+
+2## install git then we get command line tools to run various command in our terminal
+
+
+#run command if it's a git repo- 
+>git status
+
+#now first of all configure username and email in git(becoz it will tell u who has committed/snapshot the changes)
+>git config --global user.name "name"
+>git config --global user.email "example@gmail.com"
+
+then run(to get all the details)- 
+>git config --list
+
+to get specific details then run- 
+>git config user.name or user.email
+
+to select an editor in linux run- 
+>git config --global core.editor emacs or vim(chosed this) or nano
+
+
+3## three stage architecture in git
+1 working directory- where we gonna create and work on project files
+2 staging area- all the files that we gonna commit in the next commit(means saves the snapshot of all the files)
+3 git directory(repository)- this is where we will hv all the files that will be saved after the commit.
+
+
+4## created a file first.txt, first.js and first.py
+then run-
+>git status
+
+to create a git repo/directory
+>git init
+then run-
+>git status
+
+to add all the files in the staging area run-
+>git add --a
+
+then to commit the files to git repository
+>git commit -m "message"
+the run- 
+>git status
+
+to know how many commits are there(and if we want to move to that commit changes, all the details are there), run-
+>git log
+
+made changes in first.txt and steps.txt
+now to add specific file to the staging area, run-
+>git add first.txt
+
+then to commit changes- 
+git commit -m "some message"
+
+***never run git init if a git repository is already there. so always check with- git status
+
+
+5## to clone a remote git repository- 
+>git clone url  or git clone url name_we_want
+
+to remove the .git folder run(use this very carefully!)-
+>rm -rf .git
+
+now go the repository folder that u hv jst cloned and run- git status
+this folder already hv .git folder, so it will keep track of every change we gonna make..
+
+made change in readme file then run- 
+>git add --a
+>git status
+>git commit -m "some message"
+>git status
+>git log
+
+
+##6 file status life cycle- untracked  ->  unmodified(when we use add --a first time)  ->  modified  ->  staged  ->  unmodified(after commit)  
+
+again making this FC_git_by_harry folder a git repository
+>git status
+>git init
+>git add --a  or git add .   (both are same)
+
+then make change in first.txt (it will go in modified area) and run- 
+>git add first.txt   (now it will be in staged area)
+
+
+##7 git ignore- create a file named .gitignore run- touch .gitignore
+
+>touch error.log 
+>touch .gitignore 
+>git status
+
+edit .gitignore file and add error.log(filename) there then run- 
+>git status
+
+if we want to ignore all the file related to an extension add *.log(of .log eextension files) in .gitignore file
+
+if we dont want to track a whole directory with files(means not a blank directory) then add dir_name/
+
+again created a new directory static with some sub-directory(also hv file.js) and file.js
+now when we run git status it will show static as untracked directory. so run- 
+>git add .
+>git status 
+
+and if we only want to ignore outer directory then /directory_name/
+and if we only want to ignore inner directory then static/directory_name
+
+and we can also add complex patterns in .gitignore file.
+
+
+##8 difference b/w  working directory and staging area and difference b/w last commit and staging area
+
+it will compare the working directory(i.e. modified) with the staging area, run- 
+>git diff
+first block is staging area and 2nd block is working directory
+
+now to compare staging area with the last commit, run- 
+>git diff --staged
+first block is last commit and 2nd block is staging area
+
+
+##9 skipping the staging area, run- 
+>git commit -a -m "direct commit"
+
+and if we create a new file and we use above command that will not be committed!
+
+
+##10 moving and renaming files in git
+
+rename a file manually and then run- 
+>git status    (git will say u hv deleted the previous file and added a new file)
+
+>git add .   (now in staging area it will now that we hv jst changed its name)
+
+>git commit -m "renamed a file"
+
+how to remove a file using git, run- 
+>git rm file_name    it will delete the file as well as move the change to staging area(it is not the case when deleting a file manually)
+>git commit -m "removed a file"
+
+how to rename(moving is also same in ubuntu) a file using git, run-
+>git mv file_name renamed_file_name   it will rename the file as well as move the change to staging area(it is not the case when deleting a file manually)
+>git commit -m "renamed a file"
+
+what if we add a file_name in .gitignore that we are tracking from the starting
+added file_name in .gitignore 
+>git status 
+>git commit -a -m "changed gitignore file"
+
+if we modify this file that we hv jst added in .gitignore file
+>git status    (git will still track that file what we hv jst added in .gitignore file)
+
+now to explicitly tracking of this file and add it in staging area, run-
+>git rm --cached file_name    
+>git status   (git will show that it is deleted from the git folder. but it is not deleted from working directory)
+>git commit -m "removed file_name"
+>git status
+
+again make changes in first.txt to make sure that git is not tracking it!!
+
+
+##11 viewing and changing commits in git-
+>rm -rf .git
+then clone a repo, run-
+>git clone url name_we_want
+
+cd to that package/library and then run-
+>git status
+>git log
+>git log -3
+
+to see the changes in file with logs
+>git log -p
+
+to see the 3 latest changes in file with logs
+>git log -p -3
+
+to get the short summary of the changes with logs
+>git log --stat
+
+to get the limited details of commits in one line
+>git log --pretty=oneline
+
+to get the very limited details of commits in one line(if dont want to see diff, sha, date)
+>git log --pretty=short (author and commit msg)
+>git log --pretty=full   (committed by)
+
+to get log as per no. of days 
+>git log --since=2.days
+>git log --since=2.weeks
+>git log --since=2.months
+>git log --since=2.years
+
+to get the more specific details with git log
+>git log --pretty=format:"%h -- %an"
+>git log --pretty=format:"%h -- %ae"  
+for other aphabets- https://git-scm.com/docs/git-log   search for- Placeholders that expand to information extracted from the commit
+
+to amend the last commit with your changes-
+>make changes in a file then
+>git add .
+>git commit --amend   (then make changes using vim editor i, esc , :q, :qa, :wq and no need to commit the changes after this)
+>git log -p -1
+
+
+##12 unstaging and unmodifing-
+removed myPandaName package

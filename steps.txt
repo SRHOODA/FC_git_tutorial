@@ -236,4 +236,6 @@ to restore a working directory from changes(means to undo the changes)
 **use this commands carefully
 >git restore file_name
 
-how to visit 2nd last or any commit changes???
+how to visit 2nd last or any commit changes???(>git checkout HEAD~2,3 moves backwards by two,three commits.)
+>git branch 
+>git checkout branch_name t0 switch the branch

@@ -254,9 +254,8 @@ here origin means name of the url
 to check the pull(fetch) and push urls
 >git remote -v
 
-to push changes on remote repository-
->git branch -M main
->git push -u origin main
-
 we can also push code using SSH and GPG keys(search for generate SSH keys for github)
-
+OR
+to push changes on remote repository-
+>git branch -M main   (to rename a branch)
+>git push -u origin main 

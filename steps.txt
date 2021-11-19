@@ -239,3 +239,24 @@ to restore a working directory from changes(means to undo the changes)
 how to visit 2nd last or any commit changes???(>git checkout HEAD~2,3 moves backwards by two,three commits.)
 >git branch 
 >git checkout branch_name t0 switch the branch
+
+
+##13 working with remote repositories
+created a git repo on github named- FC_git_tutorial
+
+remote means a repo here
+>git remote
+
+here origin means name of the url
+>git remote add origin https://github.com/SRHOODA/FC_git_tutorial.git
+>git remote
+
+to check the pull(fetch) and push urls
+>git remote -v
+
+to push changes on remote repository-
+>git branch -M main
+>git push -u origin main
+
+we can also push code using SSH and GPG keys(search for generate SSH keys for github)
+

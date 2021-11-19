@@ -276,3 +276,28 @@ and we can use its alias and their actual name at the same time
 >git unstage file_name
 
 >git config --global alias.lastcmt "log -p -1"
+
+
+##15 creating and switching branches in git
+
+to create a branck and switch into that branch
+>git checkout -b branch_name
+
+and to jst create a branch and then switch into that branch
+>git branch  (to check in which branch we are in and total branches)
+>git branch branch_name
+>git checkout branch_name  (to switch the branch)
+
+
+then make changes remove files and folders and add new files and folder
+>git status
+
+if we want
+>git restore file_name
+
+otherwise
+>git add .
+>git commit -m "implement a totally new functionality"
+
+now to switch to main branch(all the changes on other branches will not reflect here), run-
+>git checkout main

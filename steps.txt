@@ -259,3 +259,20 @@ OR
 to push changes on remote repository-
 >git branch -M main   (to rename a branch)
 >git push -u origin main 
+
+
+##14 alias in git   
+
+alias is nothing jst writing a large command into a small one, now set an alias for >git status 
+>git config --global alias.st status
+>git st
+
+>git config --global alias.cmt commit
+>git cmt
+
+and we can use its alias and their actual name at the same time
+
+>git config --global alias.unstage "restore --staged"
+>git unstage file_name
+
+>git config --global alias.lastcmt "log -p -1"

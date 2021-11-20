@@ -301,3 +301,29 @@ otherwise
 
 now to switch to main branch(all the changes on other branches will not reflect here), run-
 >git checkout main
+
+
+##16 branching and merging
+>rm -rf .git (not doing it this time)
+
+create a myDemoSite folder/directory and copy-paste boilerplate code from bootstrap
+i m gonna do this in another branch name mySite
+then a new branch for mySite named tringFeature_mySite
+
+then i can make changes in both but it will not effect the main/master branch
+after doing changes repeat all the steps, like 
+>git status 
+>git add .
+>git commit -m ""
+>git push   (it will push the code in current branch that we are on)
+
+**always commit the changes than switch b/w branches, this way our areas will be clean state
+
+now to merge the branch with master/main branch 
+>git checkout main
+>git merge branch_name_we_want_to_merge
+then fix the conflicts with the help of VSCode 
+>git status
+>git add .
+>git commit -m "merge the branch_name" OR
+>git commit  then press esc :wq   for vim editor

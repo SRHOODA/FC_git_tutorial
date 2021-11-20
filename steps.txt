@@ -346,7 +346,7 @@ to get the branches that are not already merged
 >git branch --no-merged
 
 now to delete a branch
-**IN MY CASE(IT HAS DELETED THE BRANCH -d command)
+**IN MY CASE(IT HAS DELETED THE BRANCH -d command) **to get then again- https://stackoverflow.com/questions/3640764/can-i-recover-a-branch-after-its-deletion-in-git
 >git branch -d branch_name  (it throws error if this branch is not merged with any branch)
 so to delete the branch without any issue
 >git branch -D branch_name
@@ -367,3 +367,23 @@ resolve merge conflicts then
 
 1 long running branches- master/main, development, and proposed_updates
 2 topic/short running branches- any_topic_based_intgration
+
+
+##19 pushing git branches to remote repositories
+create a new branch bugFix, run-
+>git checkout -b branch_name
+
+now remove some file and then commit those changes 
+and then switch again to main branch and if there are some changes then push them
+
+**now to push anay branch to remote repo, run-
+>git push origin branch_name
+
+**always try to be in the same branch that u r pushing on remote repo
+
+and to change branch_name on remote repo(but dont use it. it will confuse u), run-
+>git push origin local_branch_name:branch_name_u_want
+
+to delete branch on remote repo, run-
+>git push -d origin branch_name
+

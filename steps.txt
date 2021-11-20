@@ -346,6 +346,7 @@ to get the branches that are not already merged
 >git branch --no-merged
 
 now to delete a branch
+**IN MY CASE(IT HAS DELETED THE BRANCH -d command)
 >git branch -d branch_name  (it throws error if this branch is not merged with any branch)
 so to delete the branch without any issue
 >git branch -D branch_name
@@ -360,3 +361,9 @@ resolve merge conflicts then
 >git add .   (also used for conflicts to mark them resolved)
 >git commit -m "merged branch branch_name in main"
 >git log
+
+
+##18 git branching workflow in production
+
+1 long running branches- master/main, development, and proposed_updates
+2 topic/short running branches- any_topic_based_intgration

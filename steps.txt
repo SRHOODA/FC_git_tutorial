@@ -324,6 +324,39 @@ now to merge the branch(tringFeature_mySite in this case) with master/main branc
 >git merge branch_name_we_want_to_merge
 then fix the conflicts with the help of VSCode 
 >git status
->git add .
->git commit -m "merge the branch_name" OR
->git commit  then press esc :wq   for vim editor
+>git add .  
+>git commit -m "merge the branch_name" OR >git commit  then press esc :wq   for vim editor
+
+
+##17 resolve merge conflicts
+create a new directory with index.html file then(not doing this time)
+>git init
+>git git add .
+>git commit -m ""
+
+
+to get the last commits of all the branches, run-
+>git branch -v  
+
+to get the branches that are already merged and curent one
+**we can delte the branched that we hv already merged
+>git branch --merged
+
+to get the branches that are not already merged 
+>git branch --no-merged
+
+now to delete a branch
+>git branch -d branch_name  (it throws error if this branch is not merged with any branch)
+so to delete the branch without any issue
+>git branch -D branch_name
+
+let's create a new directory with index.html file and 1 branch(master/main is already there)
+main branch's 2 commit and new_branch 2 commits(1 change is same file as main)
+
+>git checkout main
+>git status
+>git merge new_branch
+resolve merge conflicts then
+>git add .   (also used for conflicts to mark them resolved)
+>git commit -m "merged branch branch_name in main"
+>git log
